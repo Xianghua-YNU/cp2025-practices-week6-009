@@ -21,11 +21,11 @@ def solve_ode_euler(step_num):
     time_step =2 * np.pi / step_num
 
     # TODO: 设置初始位置和速度
-    osition[0] = 0
+    position[0] = 0
     velocity[0] = 1
 
     # TODO: 使用欧拉法迭代求解微分方程
-     for i in range(step_num):
+    for i in range(step_num):
         # 根据微分方程更新位置
         position[i + 1] = position[i] + velocity[i] * time_step
         # 根据微分方程更新速度，这里假设 k = m = 1
@@ -49,11 +49,11 @@ def spring_mass_ode_func(state, time):
     list: 包含位置和速度的导数的列表
     """
     # TODO: 从状态中提取位置和速度
-     position, velocity = state
+    position, velocity = state
     # TODO: 计算位置和速度的导数
     d_position_dt = velocity
     d_velocity_dt = -position
-    return [0, 0]  # 替换为正确的返回值
+    return [d_position_dt, d_velocity_dt]  # 替换为正确的返回值
 
 
 def solve_ode_odeint(step_num):
@@ -107,7 +107,7 @@ def plot_ode_solutions(time_euler, position_euler, velocity_euler, time_odeint, 
     plt.grid(True)
 
     # TODO: 绘制速度对比图
-plt.subplot(1, 2, 2)
+    plt.subplot(1, 2, 2)
     plt.plot(time_euler, velocity_euler, 'gs', label='Euler Velocity')
     plt.plot(time_odeint, velocity_odeint, 'm-', label='ODEint Velocity')
     plt.xlabel('Time')
