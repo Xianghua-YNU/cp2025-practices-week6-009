@@ -87,14 +87,24 @@ def plot_ode_solutions(time_euler, position_euler, velocity_euler, time_odeint, 
     velocity_odeint (np.ndarray): odeint 的速度数组
     """
     # TODO: 创建图形并设置大小
-    
+    plt.figure(figsize=(12, 6)) 
     # TODO: 绘制位置对比图
-    
+    plt.subplot(2, 1, 1)
+    plt.plot(time_euler, position_euler, label='Euler Method')
+    plt.plot(time_odeint, position_odeint, '--', label='odeint')
+    plt.ylabel('Position')
+    plt.title('Comparison of Position and Velocity Solutions')
+    plt.legend()
     # TODO: 绘制速度对比图
-    
+    plt.subplot(2, 1, 2)
+    plt.plot(time_euler, velocity_euler, label='Euler Method')
+    plt.plot(time_odeint, velocity_odeint, '--', label='odeint')
+    plt.ylabel('Velocity')
+    plt.xlabel('Time')
+    plt.legend()
     # TODO: 显示图形
-    pass
-
+    plt.tight_layout()
+    plt.show()
 
 if __name__ == "__main__":
     # 模拟步数
