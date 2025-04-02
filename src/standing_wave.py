@@ -14,7 +14,7 @@ def sineWaveZeroPhi(x, t, A, omega, k):
     '''
     # TODO: 实现正弦波函数
     # 提示：使用 np.sin() 函数计算 A * sin(kx - ωt)
-     return A * np.sin(k * x - omega * t)
+    return A * np.sin(k * x - omega * t)
 
 # 创建动画所需的 Figure 和 Axes
 fig = plt.figure()
